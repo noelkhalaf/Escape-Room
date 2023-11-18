@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxv3hamu0sy0u"]
+
+[ext_resource type="Texture2D" uid="uid://btw31brvyir58" path="res://assets/images/cabinet.jpg" id="1_oejm1"]
+[ext_resource type="Script" path="res://src/cabinet/Drawer.gd" id="2_pa1hy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olhp6"]
+size = Vector2(61.0336, 33.005)
+
+[node name="Cabinet" type="Area2D"]
+
+[node name="CabinetImage" type="Sprite2D" parent="."]
+scale = Vector2(0.255, 0.255)
+texture = ExtResource("1_oejm1")
+
+[node name="Drawer" type="CollisionShape2D" parent="."]
+position = Vector2(13.518, -17.5704)
+rotation = -0.0523599
+skew = 0.0104719
+shape = SubResource("RectangleShape2D_olhp6")
+script = ExtResource("2_pa1hy")

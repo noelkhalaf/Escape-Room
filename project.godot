@@ -11,9 +11,8 @@ config_version=5
 [application]
 
 config/name="Escape Room"
-run/main_scene="res://src/room/main.tscn"
+run/main_scene="res://src/room/room.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
-config/icon="res://src/room/icon.svg"
 
 [rendering]
 

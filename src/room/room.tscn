@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4q1yk8u55enw"]
+
+[ext_resource type="Texture2D" uid="uid://b0n7t7bf0tiy8" path="res://assets/images/empty_room.jpg" id="1_hu078"]
+[ext_resource type="PackedScene" uid="uid://bxv3hamu0sy0u" path="res://src/cabinet/cabinet.tscn" id="2_cg00c"]
+
+[node name="Room" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576.25, 323.5)
+scale = Vector2(2.32626, 1.79722)
+texture = ExtResource("1_hu078")
+
+[node name="Cabinet" parent="." instance=ExtResource("2_cg00c")]
+position = Vector2(264, 385)
