@@ -1,20 +1,22 @@
 [gd_scene load_steps=4 format=3 uid="uid://bfjn11pru0kim"]
 
-[ext_resource type="Texture2D" uid="uid://gjfjie1a8y0p" path="res://assets/images/vault.png" id="1_764ei"]
 [ext_resource type="Script" path="res://src/vault/vault.gd" id="1_ysyxq"]
+[ext_resource type="Texture2D" uid="uid://gjfjie1a8y0p" path="res://assets/images/vault.png" id="2_aga86"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyq8c"]
-size = Vector2(24.7429, 20.9109)
+[sub_resource type="CircleShape2D" id="CircleShape2D_b2s23"]
+radius = 17.9376
 
 [node name="vault" type="Area2D"]
 script = ExtResource("1_ysyxq")
 
 [node name="VaultImage" type="Sprite2D" parent="."]
-texture = ExtResource("1_764ei")
+position = Vector2(0, 1)
+texture = ExtResource("2_aga86")
 centered = false
 
-[node name="Keypad" type="CollisionShape2D" parent="."]
-position = Vector2(593, 273)
-rotation = 1.59872
-skew = 0.275762
-shape = SubResource("RectangleShape2D_tyq8c")
+[node name="Handle" type="CollisionShape2D" parent="."]
+position = Vector2(582, 320)
+rotation = 1.81863
+skew = 0.357792
+shape = SubResource("CircleShape2D_b2s23")
+debug_color = Color(0.945098, 0, 0.592157, 0.419608)

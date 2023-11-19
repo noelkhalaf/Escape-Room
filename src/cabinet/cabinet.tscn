@@ -30,7 +30,6 @@ centered = false
 [node name="Drawer" type="CollisionShape2D" parent="."]
 position = Vector2(257, 400)
 rotation = -0.366519
-scale = Vector2(1, 1)
 skew = 0.296706
 shape = SubResource("RectangleShape2D_olhp6")
 script = SubResource("GDScript_3s62l")
