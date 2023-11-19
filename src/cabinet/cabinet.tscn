@@ -24,11 +24,11 @@ func _process(delta):
 script = ExtResource("1_jsyom")
 
 [node name="CabinetImage" type="Sprite2D" parent="."]
-position = Vector2(298, -88)
 texture = ExtResource("1_njaqq")
+centered = false
 
 [node name="Drawer" type="CollisionShape2D" parent="."]
-position = Vector2(42.7409, 11.644)
+position = Vector2(257, 400)
 rotation = -0.366519
 scale = Vector2(1, 1)
 skew = 0.296706

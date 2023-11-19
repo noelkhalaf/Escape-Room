@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfjn11pru0kim"]
+
+[ext_resource type="Texture2D" uid="uid://gjfjie1a8y0p" path="res://assets/images/vault.png" id="1_764ei"]
+[ext_resource type="Script" path="res://src/vault/vault.gd" id="1_ysyxq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyq8c"]
+size = Vector2(24.7429, 20.9109)
+
+[node name="vault" type="Area2D"]
+script = ExtResource("1_ysyxq")
+
+[node name="VaultImage" type="Sprite2D" parent="."]
+texture = ExtResource("1_764ei")
+centered = false
+
+[node name="Keypad" type="CollisionShape2D" parent="."]
+position = Vector2(593, 273)
+rotation = 1.59872
+skew = 0.275762
+shape = SubResource("RectangleShape2D_tyq8c")

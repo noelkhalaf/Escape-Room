@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4q1yk8u55enw"]
+[gd_scene load_steps=4 format=3 uid="uid://b4q1yk8u55enw"]
 
 [ext_resource type="Texture2D" uid="uid://bpsrhv2naxgjk" path="res://assets/images/empty-background.png" id="1_3xj3x"]
 [ext_resource type="PackedScene" uid="uid://bxv3hamu0sy0u" path="res://src/cabinet/cabinet.tscn" id="2_cg00c"]
+[ext_resource type="PackedScene" uid="uid://bfjn11pru0kim" path="res://src/vault/vault.tscn" id="3_3hjj8"]
 
 [node name="Room" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(512.02, 300.225)
 texture = ExtResource("1_3xj3x")
+centered = false
 
 [node name="Cabinet" parent="." instance=ExtResource("2_cg00c")]
-position = Vector2(207, 395)
+
+[node name="vault" parent="." instance=ExtResource("3_3hjj8")]
