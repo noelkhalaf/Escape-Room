@@ -3,8 +3,9 @@
 [ext_resource type="Script" path="res://src/vault/vault.gd" id="1_ysyxq"]
 [ext_resource type="Texture2D" uid="uid://gjfjie1a8y0p" path="res://assets/images/vault.png" id="2_aga86"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_b2s23"]
-radius = 17.9376
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xsq1g"]
+radius = 16.2723
+height = 42.7344
 
 [node name="vault" type="Area2D"]
 script = ExtResource("1_ysyxq")
@@ -15,8 +16,7 @@ texture = ExtResource("2_aga86")
 centered = false
 
 [node name="Handle" type="CollisionShape2D" parent="."]
-position = Vector2(582, 320)
-rotation = 1.81863
-skew = 0.357792
-shape = SubResource("CircleShape2D_b2s23")
+position = Vector2(578, 319)
+rotation = -0.277507
+shape = SubResource("CapsuleShape2D_xsq1g")
 debug_color = Color(0.945098, 0, 0.592157, 0.419608)

@@ -24,18 +24,20 @@ func _input_event(viewport, event, shape_idx):
 
 func open_vault():
 	vault_s.set_texture(vault_open_t)
-	handle_s.position.x = Global.VAULT_HANDLE_OPEN_POS_X
-	handle_s.position.y = Global.VAULT_HANDLE_OPEN_POS_Y
-	handle_s.rotation = Global.VAULT_HANDLE_OPEN_ROT
-	handle_s.scale.x = Global.VAULT_HANDLE_OPEN_SCALE_X
-	handle_s.scale.y = Global.VAULT_HANDLE_OPEN_SCALE_Y
-	handle_s.skew = Global.VAULT_HANDLE_OPEN_SKEW
+	handle_s.position.x -= Global.VAULT_HANDLE_POS_X_DIFF
+	handle_s.position.y -= Global.VAULT_HANDLE_POS_Y_DIFF
+	handle_s.rotation_degrees = Global.VAULT_HANDLE_OPEN_ROT
+	handle_s.shape.radius = Global.VAULT_HANDLE_OPEN_RAD
+	#handle_s.scale.x = Global.VAULT_HANDLE_OPEN_SCALE_X
+	#handle_s.scale.y = Global.VAULT_HANDLE_OPEN_SCALE_Y
+	#handle_s.skew = Global.VAULT_HANDLE_OPEN_SKEW
 
 func close_vault():
 	vault_s.set_texture(vault_closed_t)
-	handle_s.position.x = Global.VAULT_HANDLE_CLOSED_POS_X
-	handle_s.position.y = Global.VAULT_HANDLE_CLOSED_POS_Y
-	handle_s.rotation = Global.VAULT_HANDLE_CLOSED_ROT
-	handle_s.scale.x = Global.VAULT_HANDLE_CLOSED_SCALE_X
-	handle_s.scale.y = Global.VAULT_HANDLE_CLOSED_SCALE_Y
-	handle_s.skew = Global.VAULT_HANDLE_CLOSED_SKEW
+	handle_s.position.x += Global.VAULT_HANDLE_POS_X_DIFF
+	handle_s.position.y += Global.VAULT_HANDLE_POS_Y_DIFF
+	handle_s.rotation_degrees = Global.VAULT_HANDLE_CLOSED_ROT
+	handle_s.shape.radius = Global.VAULT_HANDLE_CLOSED_RAD
+	#handle_s.scale.x = Global.VAULT_HANDLE_CLOSED_SCALE_X
+	#handle_s.scale.y = Global.VAULT_HANDLE_CLOSED_SCALE_Y
+	#handle_s.skew = Global.VAULT_HANDLE_CLOSED_SKEW
