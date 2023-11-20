@@ -23,10 +23,10 @@ func _input_event(viewport, event, shape_idx):
 
 func open_drawer():
 	cabinet_s.set_texture(cabinet_open_t)
-	drawer_s.position.x = Global.DRAWER_OPEN_POS_X
-	drawer_s.position.y = Global.DRAWER_OPEN_POS_Y
+	drawer_s.position.x += Global.DRAWER_POS_X_DIFF
+	drawer_s.position.y += Global.DRAWER_POS_Y_DIFF
 
 func close_drawer():
 	cabinet_s.set_texture(cabinet_closed_t)
-	drawer_s.position.x = Global.DRAWER_CLOSED_POS_X
-	drawer_s.position.y = Global.DRAWER_CLOSED_POS_Y
+	drawer_s.position.x -= Global.DRAWER_POS_X_DIFF
+	drawer_s.position.y -= Global.DRAWER_POS_Y_DIFF

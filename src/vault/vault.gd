@@ -1,10 +1,17 @@
 extends Area2D
 
-var vault_closed_t = preload("res://assets/images/vault.png")
-var vault_open_t = preload("res://assets/images/vault-open.png")
+const vault_closed_t = preload("res://assets/images/vault.png")
+const vault_open_t = preload("res://assets/images/vault-open.png")
+const vault_open_key_t = preload("res://assets/images/vault-open-key.png")
+
+enum {CLOSED_NO_KEY, CLOSED_W_KEY, OPEN_NO_KEY, OPEN_W_KEY}
 
 @onready var vault_s = $VaultImage
 @onready var handle_s = $Handle
+@onready var key_s = $Key
+
+var state = CLOSED_W_KEY
+var vault_unlocked: bool = true # TODO: default false, turn true with correct keypad input
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,20 +24,39 @@ func _process(delta):
 
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		if vault_s.get_texture() == vault_closed_t:
-			open_vault()
-		else:
-			close_vault()
+		match shape_idx:
+			0:
+				handle_clicked()
+			1:
+				key_clicked()
 
-func open_vault():
-	vault_s.set_texture(vault_open_t)
+func handle_clicked():
+	match state:
+		CLOSED_NO_KEY:
+			open_vault(vault_open_t)
+			state = OPEN_NO_KEY
+		CLOSED_W_KEY:
+			if vault_unlocked:
+				open_vault(vault_open_key_t)
+				state = OPEN_W_KEY
+		OPEN_NO_KEY:
+			close_vault()
+			state = CLOSED_NO_KEY
+		OPEN_W_KEY:
+			close_vault()
+			state = CLOSED_W_KEY
+
+func key_clicked():
+	if state == OPEN_W_KEY: # TODO: add inventory update
+		vault_s.set_texture(vault_open_t)
+		state = OPEN_NO_KEY
+
+func open_vault(image_t):
+	vault_s.set_texture(image_t)
 	handle_s.position.x -= Global.VAULT_HANDLE_POS_X_DIFF
 	handle_s.position.y -= Global.VAULT_HANDLE_POS_Y_DIFF
 	handle_s.rotation_degrees = Global.VAULT_HANDLE_OPEN_ROT
 	handle_s.shape.radius = Global.VAULT_HANDLE_OPEN_RAD
-	#handle_s.scale.x = Global.VAULT_HANDLE_OPEN_SCALE_X
-	#handle_s.scale.y = Global.VAULT_HANDLE_OPEN_SCALE_Y
-	#handle_s.skew = Global.VAULT_HANDLE_OPEN_SKEW
 
 func close_vault():
 	vault_s.set_texture(vault_closed_t)
@@ -38,6 +64,4 @@ func close_vault():
 	handle_s.position.y += Global.VAULT_HANDLE_POS_Y_DIFF
 	handle_s.rotation_degrees = Global.VAULT_HANDLE_CLOSED_ROT
 	handle_s.shape.radius = Global.VAULT_HANDLE_CLOSED_RAD
-	#handle_s.scale.x = Global.VAULT_HANDLE_CLOSED_SCALE_X
-	#handle_s.scale.y = Global.VAULT_HANDLE_CLOSED_SCALE_Y
-	#handle_s.skew = Global.VAULT_HANDLE_CLOSED_SKEW
+	

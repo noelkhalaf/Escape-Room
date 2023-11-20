@@ -1,10 +1,8 @@
 extends Node
 
 # Drawer
-const DRAWER_CLOSED_POS_X: 	float = 257
-const DRAWER_CLOSED_POS_Y: 	float = 400
-const DRAWER_OPEN_POS_X: 	float = 295
-const DRAWER_OPEN_POS_Y: 	float = 420
+const DRAWER_POS_X_DIFF: 	float = 38
+const DRAWER_POS_Y_DIFF: 	float = 20
 
 # Vault
 const VAULT_HANDLE_POS_X_DIFF: 		float = 50
