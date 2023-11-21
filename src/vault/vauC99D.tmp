@@ -1,0 +1,104 @@
+[gd_scene load_steps=9 format=3 uid="uid://bfjn11pru0kim"]
+
+[ext_resource type="Script" path="res://src/vault/vault.gd" id="1_ysyxq"]
+[ext_resource type="Texture2D" uid="uid://gjfjie1a8y0p" path="res://assets/images/vault.png" id="2_aga86"]
+[ext_resource type="PackedScene" uid="uid://bqku5vbtpq2da" path="res://src/vault/keypad/keypad.tscn" id="3_x8gvv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xsq1g"]
+radius = 16.2723
+height = 42.7344
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7c5du"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1umaj"]
+size = Vector2(24.8125, 23.091)
+
+[sub_resource type="GDScript" id="GDScript_npp4o"]
+script/source = "extends CollisionShape2D
+
+@onready var back_s = $Back
+@onready var vault_s = $vault
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func _input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		match shape_idx:
+			0:
+				back_clicked()
+			1:
+				enter_clicked()
+
+func back_clicked():
+	get_tree().change_scene_to_file(Global.ROOM_SCENE_PATH)
+
+func enter_clicked():
+	vault_s.vault_unlocked = true"
+
+[sub_resource type="GDScript" id="GDScript_yjyxl"]
+script/source = "extends Area2D
+
+@onready var back_s = $Back
+
+var vault = get_node(\".\")
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func _input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		match shape_idx:
+			0:
+				back_clicked()
+			1:
+				enter_clicked()
+
+func back_clicked():
+	get_tree().change_scene_to_file(Global.ROOM_SCENE_PATH)
+
+func enter_clicked():
+	vault_s.vault_unlocked = true # TODO check if combination is correct
+"
+
+[node name="vault" type="Area2D"]
+script = ExtResource("1_ysyxq")
+
+[node name="VaultImage" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+texture = ExtResource("2_aga86")
+centered = false
+
+[node name="Handle" type="CollisionShape2D" parent="."]
+position = Vector2(578, 319)
+rotation = -0.277507
+shape = SubResource("CapsuleShape2D_xsq1g")
+debug_color = Color(0.945098, 0, 0.592157, 0.419608)
+
+[node name="Key" type="CollisionShape2D" parent="."]
+position = Vector2(589, 292)
+rotation = -0.446804
+shape = SubResource("CapsuleShape2D_7c5du")
+
+[node name="Keypad" type="CollisionShape2D" parent="."]
+position = Vector2(587.151, 272.645)
+rotation = 1.5708
+skew = 0.349066
+shape = SubResource("RectangleShape2D_1umaj")
+script = SubResource("GDScript_npp4o")
+
+[node name="keypad" parent="." instance=ExtResource("3_x8gvv")]
+visible = false
+script = SubResource("GDScript_yjyxl")

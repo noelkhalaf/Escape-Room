@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqku5vbtpq2da"]
+
+[ext_resource type="Texture2D" uid="uid://kxrevqmr6nl3" path="res://assets/images/vault-keypad-closeup.png" id="1_rntox"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_620xj"]
+size = Vector2(119, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3eb32"]
+size = Vector2(55.5, 55)
+
+[node name="keypad" type="Area2D"]
+
+[node name="KeypadImage" type="Sprite2D" parent="."]
+texture = ExtResource("1_rntox")
+centered = false
+
+[node name="Back" type="CollisionShape2D" parent="."]
+position = Vector2(71, 43)
+shape = SubResource("RectangleShape2D_620xj")
+
+[node name="Enter" type="CollisionShape2D" parent="."]
+position = Vector2(610.25, 381.5)
+shape = SubResource("RectangleShape2D_3eb32")

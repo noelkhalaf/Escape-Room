@@ -1,5 +1,7 @@
 extends Node
 
+var ROOM_SCENE_PATH:	String = "res://src/room/room.tscn"
+
 # Drawer
 const DRAWER_POS_X_DIFF: 	float = 38
 const DRAWER_POS_Y_DIFF: 	float = 20

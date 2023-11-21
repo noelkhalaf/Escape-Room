@@ -9,14 +9,15 @@ enum {CLOSED_NO_KEY, CLOSED_W_KEY, OPEN_NO_KEY, OPEN_W_KEY}
 @onready var vault_s = $VaultImage
 @onready var handle_s = $Handle
 @onready var key_s = $Key
+@onready var keypad_s = $Keypad
+@onready var keypad_sc = $keypad
 
 var state = CLOSED_W_KEY
-var vault_unlocked: bool = true # TODO: default false, turn true with correct keypad input
+var vault_unlocked: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -29,6 +30,8 @@ func _input_event(viewport, event, shape_idx):
 				handle_clicked()
 			1:
 				key_clicked()
+			2:
+				keypad_clicked()
 
 func handle_clicked():
 	match state:
@@ -51,6 +54,10 @@ func key_clicked():
 		vault_s.set_texture(vault_open_t)
 		state = OPEN_NO_KEY
 
+func keypad_clicked():
+	if state == CLOSED_W_KEY || state == CLOSED_NO_KEY:
+		keypad_sc.visible = true
+
 func open_vault(image_t):
 	vault_s.set_texture(image_t)
 	handle_s.position.x -= Global.VAULT_HANDLE_POS_X_DIFF
@@ -65,3 +72,8 @@ func close_vault():
 	handle_s.rotation_degrees = Global.VAULT_HANDLE_CLOSED_ROT
 	handle_s.shape.radius = Global.VAULT_HANDLE_CLOSED_RAD
 	
+func unlock_vault():
+	vault_unlocked = true
+	
+func lock_vault():
+	vault_unlocked = false

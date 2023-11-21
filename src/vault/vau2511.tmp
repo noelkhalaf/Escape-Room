@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfjn11pru0kim"]
+[gd_scene load_steps=9 format=3 uid="uid://bfjn11pru0kim"]
 
 [ext_resource type="Script" path="res://src/vault/vault.gd" id="1_ysyxq"]
 [ext_resource type="Texture2D" uid="uid://gjfjie1a8y0p" path="res://assets/images/vault.png" id="2_aga86"]
@@ -13,6 +13,35 @@ height = 42.7344
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1umaj"]
 size = Vector2(24.8125, 23.091)
+
+[sub_resource type="GDScript" id="GDScript_npp4o"]
+script/source = "extends CollisionShape2D
+
+@onready var back_s = $Back
+@onready var vault_s = $vault
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func _input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		match shape_idx:
+			0:
+				back_clicked()
+			1:
+				enter_clicked()
+
+func back_clicked():
+	get_tree().change_scene_to_file(Global.ROOM_SCENE_PATH)
+
+func enter_clicked():
+	vault_s.vault_unlocked = true"
 
 [node name="vault" type="Area2D"]
 script = ExtResource("1_ysyxq")
@@ -38,6 +67,7 @@ position = Vector2(587.151, 272.645)
 rotation = 1.5708
 skew = 0.349066
 shape = SubResource("RectangleShape2D_1umaj")
+script = SubResource("GDScript_npp4o")
 
 [node name="keypad" parent="." instance=ExtResource("3_x8gvv")]
 visible = false

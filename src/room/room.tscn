@@ -4,12 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://bxv3hamu0sy0u" path="res://src/cabinet/cabinet.tscn" id="2_cg00c"]
 [ext_resource type="PackedScene" uid="uid://bfjn11pru0kim" path="res://src/vault/vault.tscn" id="3_3hjj8"]
 
-[node name="Room" type="Node2D"]
+[node name="room" type="Node2D"]
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="RoomImage" type="Sprite2D" parent="."]
 texture = ExtResource("1_3xj3x")
 centered = false
 
-[node name="Cabinet" parent="." instance=ExtResource("2_cg00c")]
+[node name="cabinet" parent="." instance=ExtResource("2_cg00c")]
 
 [node name="vault" parent="." instance=ExtResource("3_3hjj8")]
