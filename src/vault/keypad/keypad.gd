@@ -14,6 +14,10 @@ const seven_t = preload("res://assets/images/vault-keypad/0.png")
 const eight_t = preload("res://assets/images/vault-keypad/0.png")
 const nine_t = preload("res://assets/images/vault-keypad/0.png")
 
+const button_press_a = preload("res://assets/sounds/vault/keypad/electric_button_press.wav")
+const clear_keypad_a = preload("res://assets/sounds/vault/keypad/electric_button_clear_louder.wav")
+const solved_keypad_a = preload("res://assets/sounds/vault/keypad/electric_button_solved.wav")
+
 @onready var vault_s = $".."
 @onready var keypad_image_s = $KeypadImage
 @onready var back_s = $Back
@@ -29,7 +33,8 @@ const nine_t = preload("res://assets/images/vault-keypad/0.png")
 @onready var seven_s = $Seven
 @onready var eight_s = $Eight
 @onready var nine_s = $Nine
-@onready var chage_keypad_s = $ChangeKeypad
+@onready var keypad_textures_s = $KeypadTextures
+@onready var keypad_sounds_s = $KeypadSounds
 
 const correct_passcode: String = "3207"
 var user_passcode: String = ""
@@ -68,7 +73,7 @@ func _input_event(viewport, event, shape_idx):
 				2:
 					pass
 				_:
-					chage_keypad_s.default_animation()
+					keypad_textures_s.default_animation()
 
 func back_clicked():
 	self.visible = false
@@ -77,15 +82,22 @@ func enter_clicked():
 	print(user_passcode)
 	if user_passcode == correct_passcode:
 		solved = true
+		keypad_sounds_s.stream = solved_keypad_a
+		keypad_sounds_s.play()
 		vault_s.unlock_vault()
-		chage_keypad_s.enter_animation()
+		keypad_textures_s.enter_animation()
 	else:
 		clear_user_passcode()
 
 func clear_user_passcode():
 	user_passcode = ""
-	chage_keypad_s.clear_animation()
+	keypad_textures_s.clear_animation()
+	keypad_sounds_s.stream = clear_keypad_a
+	keypad_sounds_s.play()
 
 func number_clicked(number):
 	user_passcode = user_passcode + str(number)
-	chage_keypad_s.number_animation(number)
+	keypad_textures_s.number_animation(number)
+	keypad_sounds_s.stream = button_press_a
+	keypad_sounds_s.play()
+	

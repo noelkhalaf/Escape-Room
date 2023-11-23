@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqku5vbtpq2da"]
+[gd_scene load_steps=6 format=3 uid="uid://bqku5vbtpq2da"]
 
 [ext_resource type="Texture2D" uid="uid://dhairor1cc60b" path="res://assets/images/vault-keypad/keypad-default.png" id="1_e4d13"]
-[ext_resource type="Script" path="res://src/vault/keypad/ChangeKeypad.gd" id="2_wcoso"]
+[ext_resource type="Script" path="res://src/vault/keypad/KeypadTextures.gd" id="2_js2go"]
+[ext_resource type="Script" path="res://src/vault/keypad/KeypadSounds.gd" id="3_skjxh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_620xj"]
 size = Vector2(119, 63)
@@ -67,7 +68,10 @@ shape = SubResource("RectangleShape2D_3eb32")
 position = Vector2(611, 334)
 shape = SubResource("RectangleShape2D_3eb32")
 
-[node name="ChangeKeypad" type="TextureRect" parent="."]
+[node name="KeypadTextures" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("2_wcoso")
+script = ExtResource("2_js2go")
+
+[node name="KeypadSounds" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("3_skjxh")

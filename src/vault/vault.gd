@@ -4,6 +4,7 @@ const vault_closed_t = preload("res://assets/images/vault.png")
 const vault_closed_unlocked_t = preload("res://assets/images/vault-accept.png")
 const vault_open_t = preload("res://assets/images/vault-open.png")
 const vault_open_key_t = preload("res://assets/images/vault-open-key.png")
+const vault_unlocking_a = preload("res://assets/sounds/vault/vault_unlock.wav")
 
 enum {CLOSED_W_KEY, OPEN_W_KEY, CLOSED_NO_KEY, OPEN_NO_KEY}
 
@@ -14,6 +15,7 @@ enum {CLOSED_W_KEY, OPEN_W_KEY, CLOSED_NO_KEY, OPEN_NO_KEY}
 @onready var key_s = $Key
 @onready var keypad_s = $Keypad
 @onready var keypad_sc = $keypad
+@onready var vault_sounds_s = $VaultSounds
 
 var state = CLOSED_W_KEY
 var vault_unlocked: bool = false
@@ -79,6 +81,8 @@ func close_vault(image_t):
 func unlock_vault():
 	vault_unlocked = true
 	vault_image_s.set_texture(vault_closed_unlocked_t)
+	vault_sounds_s.stream = vault_unlocking_a
+	vault_sounds_s.play()
 	
 func lock_vault():
 	vault_unlocked = false

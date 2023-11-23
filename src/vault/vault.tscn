@@ -42,3 +42,5 @@ shape = SubResource("RectangleShape2D_1umaj")
 [node name="keypad" parent="." instance=ExtResource("3_x8gvv")]
 visible = false
 script = ExtResource("4_2fki8")
+
+[node name="VaultSounds" type="AudioStreamPlayer2D" parent="."]
