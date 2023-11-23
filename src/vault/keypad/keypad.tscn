@@ -19,5 +19,37 @@ position = Vector2(71, 43)
 shape = SubResource("RectangleShape2D_620xj")
 
 [node name="Enter" type="CollisionShape2D" parent="."]
-position = Vector2(610.25, 381.5)
+position = Vector2(611, 381)
+shape = SubResource("RectangleShape2D_3eb32")
+
+[node name="Clear" type="CollisionShape2D" parent="."]
+position = Vector2(451, 381)
+shape = SubResource("RectangleShape2D_3eb32")
+
+[node name="Zero" type="CollisionShape2D" parent="."]
+position = Vector2(531, 381)
+shape = SubResource("RectangleShape2D_3eb32")
+
+[node name="One" type="CollisionShape2D" parent="."]
+position = Vector2(451, 214)
+shape = SubResource("RectangleShape2D_3eb32")
+
+[node name="Two" type="CollisionShape2D" parent="."]
+position = Vector2(531, 214)
+shape = SubResource("RectangleShape2D_3eb32")
+
+[node name="Three" type="CollisionShape2D" parent="."]
+position = Vector2(610, 214)
+shape = SubResource("RectangleShape2D_3eb32")
+
+[node name="Four" type="CollisionShape2D" parent="."]
+position = Vector2(451, 297)
+shape = SubResource("RectangleShape2D_3eb32")
+
+[node name="Five" type="CollisionShape2D" parent="."]
+position = Vector2(531, 297)
+shape = SubResource("RectangleShape2D_3eb32")
+
+[node name="Six" type="CollisionShape2D" parent="."]
+position = Vector2(610, 297)
 shape = SubResource("RectangleShape2D_3eb32")
