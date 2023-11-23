@@ -4,7 +4,7 @@ const vault_closed_t = preload("res://assets/images/vault.png")
 const vault_open_t = preload("res://assets/images/vault-open.png")
 const vault_open_key_t = preload("res://assets/images/vault-open-key.png")
 
-enum {CLOSED_NO_KEY, CLOSED_W_KEY, OPEN_NO_KEY, OPEN_W_KEY}
+enum {CLOSED_W_KEY, OPEN_W_KEY, CLOSED_NO_KEY, OPEN_NO_KEY}
 
 @onready var room_sc = $".."
 @onready var key_sc = $"../key"
@@ -37,19 +37,19 @@ func _input_event(viewport, event, shape_idx):
 
 func handle_clicked():
 	match state:
-		CLOSED_NO_KEY:
-			open_vault(vault_open_t)
-			state = OPEN_NO_KEY
 		CLOSED_W_KEY:
 			if vault_unlocked:
 				open_vault(vault_open_key_t)
 				state = OPEN_W_KEY
-		OPEN_NO_KEY:
-			close_vault()
-			state = CLOSED_NO_KEY
 		OPEN_W_KEY:
 			close_vault()
 			state = CLOSED_W_KEY
+		CLOSED_NO_KEY:
+			open_vault(vault_open_t)
+			state = OPEN_NO_KEY
+		OPEN_NO_KEY:
+			close_vault()
+			state = CLOSED_NO_KEY
 
 func key_clicked():
 	if state == OPEN_W_KEY: # TODO: add inventory update
