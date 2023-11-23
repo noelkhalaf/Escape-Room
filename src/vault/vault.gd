@@ -1,6 +1,7 @@
 extends Area2D
 
 const vault_closed_t = preload("res://assets/images/vault.png")
+const vault_closed_unlocked_t = preload("res://assets/images/vault-accept.png")
 const vault_open_t = preload("res://assets/images/vault-open.png")
 const vault_open_key_t = preload("res://assets/images/vault-open-key.png")
 
@@ -8,7 +9,7 @@ enum {CLOSED_W_KEY, OPEN_W_KEY, CLOSED_NO_KEY, OPEN_NO_KEY}
 
 @onready var room_sc = $".."
 @onready var key_sc = $"../key"
-@onready var vault_s = $VaultImage
+@onready var vault_image_s = $VaultImage
 @onready var handle_s = $Handle
 @onready var key_s = $Key
 @onready var keypad_s = $Keypad
@@ -42,18 +43,18 @@ func handle_clicked():
 				open_vault(vault_open_key_t)
 				state = OPEN_W_KEY
 		OPEN_W_KEY:
-			close_vault()
+			close_vault(vault_closed_unlocked_t)	
 			state = CLOSED_W_KEY
 		CLOSED_NO_KEY:
 			open_vault(vault_open_t)
 			state = OPEN_NO_KEY
 		OPEN_NO_KEY:
-			close_vault()
+			close_vault(vault_closed_unlocked_t)
 			state = CLOSED_NO_KEY
 
 func key_clicked():
 	if state == OPEN_W_KEY: # TODO: add inventory update
-		vault_s.set_texture(vault_open_t)
+		vault_image_s.set_texture(vault_open_t)
 		state = OPEN_NO_KEY
 		key_sc.visible = true
 
@@ -62,14 +63,14 @@ func keypad_clicked():
 		keypad_sc.visible = true
 
 func open_vault(image_t):
-	vault_s.set_texture(image_t)
+	vault_image_s.set_texture(image_t)
 	handle_s.position.x -= Global.VAULT_HANDLE_POS_X_DIFF
 	handle_s.position.y -= Global.VAULT_HANDLE_POS_Y_DIFF
 	handle_s.rotation_degrees = Global.VAULT_HANDLE_OPEN_ROT
 	handle_s.shape.radius = Global.VAULT_HANDLE_OPEN_RAD
 
-func close_vault():
-	vault_s.set_texture(vault_closed_t)
+func close_vault(image_t):
+	vault_image_s.set_texture(image_t)
 	handle_s.position.x += Global.VAULT_HANDLE_POS_X_DIFF
 	handle_s.position.y += Global.VAULT_HANDLE_POS_Y_DIFF
 	handle_s.rotation_degrees = Global.VAULT_HANDLE_CLOSED_ROT
@@ -77,6 +78,8 @@ func close_vault():
 	
 func unlock_vault():
 	vault_unlocked = true
+	vault_image_s.set_texture(vault_closed_unlocked_t)
 	
 func lock_vault():
 	vault_unlocked = false
+	vault_image_s.set_texture(vault_closed_t)

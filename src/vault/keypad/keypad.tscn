@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqku5vbtpq2da"]
+[gd_scene load_steps=5 format=3 uid="uid://bqku5vbtpq2da"]
 
-[ext_resource type="Texture2D" uid="uid://kxrevqmr6nl3" path="res://assets/images/vault-keypad-closeup.png" id="1_rntox"]
+[ext_resource type="Texture2D" uid="uid://dhairor1cc60b" path="res://assets/images/vault-keypad/keypad-default.png" id="1_e4d13"]
+[ext_resource type="Script" path="res://src/vault/keypad/ChangeKeypad.gd" id="2_wcoso"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_620xj"]
 size = Vector2(119, 63)
@@ -11,7 +12,7 @@ size = Vector2(55.5, 55)
 [node name="keypad" type="Area2D"]
 
 [node name="KeypadImage" type="Sprite2D" parent="."]
-texture = ExtResource("1_rntox")
+texture = ExtResource("1_e4d13")
 centered = false
 
 [node name="Back" type="CollisionShape2D" parent="."]
@@ -19,37 +20,54 @@ position = Vector2(71, 43)
 shape = SubResource("RectangleShape2D_620xj")
 
 [node name="Enter" type="CollisionShape2D" parent="."]
-position = Vector2(611, 381)
+position = Vector2(611, 412)
 shape = SubResource("RectangleShape2D_3eb32")
 
 [node name="Clear" type="CollisionShape2D" parent="."]
-position = Vector2(451, 381)
+position = Vector2(451, 412)
 shape = SubResource("RectangleShape2D_3eb32")
 
 [node name="Zero" type="CollisionShape2D" parent="."]
-position = Vector2(531, 381)
+position = Vector2(531, 412)
 shape = SubResource("RectangleShape2D_3eb32")
 
 [node name="One" type="CollisionShape2D" parent="."]
-position = Vector2(451, 214)
+position = Vector2(451, 178)
 shape = SubResource("RectangleShape2D_3eb32")
 
 [node name="Two" type="CollisionShape2D" parent="."]
-position = Vector2(531, 214)
+position = Vector2(531, 178)
 shape = SubResource("RectangleShape2D_3eb32")
 
 [node name="Three" type="CollisionShape2D" parent="."]
-position = Vector2(610, 214)
+position = Vector2(611, 178)
 shape = SubResource("RectangleShape2D_3eb32")
 
 [node name="Four" type="CollisionShape2D" parent="."]
-position = Vector2(451, 297)
+position = Vector2(451, 256)
 shape = SubResource("RectangleShape2D_3eb32")
 
 [node name="Five" type="CollisionShape2D" parent="."]
-position = Vector2(531, 297)
+position = Vector2(531, 256)
 shape = SubResource("RectangleShape2D_3eb32")
 
 [node name="Six" type="CollisionShape2D" parent="."]
-position = Vector2(610, 297)
+position = Vector2(611, 256)
 shape = SubResource("RectangleShape2D_3eb32")
+
+[node name="Seven" type="CollisionShape2D" parent="."]
+position = Vector2(451, 334)
+shape = SubResource("RectangleShape2D_3eb32")
+
+[node name="Eight" type="CollisionShape2D" parent="."]
+position = Vector2(531, 334)
+shape = SubResource("RectangleShape2D_3eb32")
+
+[node name="Nine" type="CollisionShape2D" parent="."]
+position = Vector2(611, 334)
+shape = SubResource("RectangleShape2D_3eb32")
+
+[node name="ChangeKeypad" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_wcoso")
