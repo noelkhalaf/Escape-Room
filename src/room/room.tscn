@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4q1yk8u55enw"]
+[gd_scene load_steps=5 format=3 uid="uid://b4q1yk8u55enw"]
 
 [ext_resource type="Texture2D" uid="uid://bpsrhv2naxgjk" path="res://assets/images/empty-background.png" id="1_3xj3x"]
 [ext_resource type="PackedScene" uid="uid://bxv3hamu0sy0u" path="res://src/cabinet/cabinet.tscn" id="2_cg00c"]
 [ext_resource type="PackedScene" uid="uid://bfjn11pru0kim" path="res://src/vault/vault.tscn" id="3_3hjj8"]
+[ext_resource type="PackedScene" uid="uid://c6bxrci5pcewx" path="res://src/key/key.tscn" id="4_l0dip"]
 
 [node name="room" type="Node2D"]
 
@@ -13,3 +14,6 @@ centered = false
 [node name="cabinet" parent="." instance=ExtResource("2_cg00c")]
 
 [node name="vault" parent="." instance=ExtResource("3_3hjj8")]
+
+[node name="key" parent="." instance=ExtResource("4_l0dip")]
+visible = false

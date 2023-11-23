@@ -6,6 +6,8 @@ const vault_open_key_t = preload("res://assets/images/vault-open-key.png")
 
 enum {CLOSED_NO_KEY, CLOSED_W_KEY, OPEN_NO_KEY, OPEN_W_KEY}
 
+@onready var room_sc = $".."
+@onready var key_sc = $"../key"
 @onready var vault_s = $VaultImage
 @onready var handle_s = $Handle
 @onready var key_s = $Key
@@ -53,9 +55,10 @@ func key_clicked():
 	if state == OPEN_W_KEY: # TODO: add inventory update
 		vault_s.set_texture(vault_open_t)
 		state = OPEN_NO_KEY
+		key_sc.visible = true
 
 func keypad_clicked():
-	if state == CLOSED_W_KEY || state == CLOSED_NO_KEY:
+	if state == CLOSED_W_KEY or state == CLOSED_NO_KEY:
 		keypad_sc.visible = true
 
 func open_vault(image_t):
