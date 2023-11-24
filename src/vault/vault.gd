@@ -9,7 +9,6 @@ const vault_unlocking_a = preload("res://assets/sounds/vault/vault_unlock.wav")
 enum {CLOSED_W_KEY, OPEN_W_KEY, CLOSED_NO_KEY, OPEN_NO_KEY}
 
 @onready var room_sc = $".."
-@onready var key_sc = $"../key"
 @onready var vault_image_s = $VaultImage
 @onready var handle_s = $Handle
 @onready var key_s = $Key
@@ -58,7 +57,7 @@ func key_clicked():
 	if state == OPEN_W_KEY: # TODO: add inventory update
 		vault_image_s.set_texture(vault_open_t)
 		state = OPEN_NO_KEY
-		key_sc.visible = true
+		room_sc.obtained_key()
 
 func keypad_clicked():
 	if state == CLOSED_W_KEY or state == CLOSED_NO_KEY:

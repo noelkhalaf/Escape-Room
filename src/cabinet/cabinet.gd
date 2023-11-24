@@ -4,6 +4,7 @@ var cabinet_closed_t = preload("res://assets/images/cabinet.png")
 var cabinet_open_t = preload("res://assets/images/cabinet-open.png")
 var cabinet_open_note_t = preload("res://assets/images/cabinet-open-notepad.png")
 
+@onready var room_sc = $".."
 @onready var cabinet_s = $CabinetImage
 @onready var drawer_s = $Drawer
 @onready var note_s = $Note
@@ -47,6 +48,7 @@ func note_clicked():
 	if state == OPEN_W_ITEM: # TODO: add inventory update
 		cabinet_s.set_texture(cabinet_open_t)
 		state = OPEN_NO_ITEM
+		room_sc.obtained_notepad()
 
 func open_drawer(image_t):
 	cabinet_s.set_texture(image_t)

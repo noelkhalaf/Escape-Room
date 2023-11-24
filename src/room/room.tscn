@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4q1yk8u55enw"]
+[gd_scene load_steps=7 format=3 uid="uid://b4q1yk8u55enw"]
 
 [ext_resource type="Texture2D" uid="uid://bpsrhv2naxgjk" path="res://assets/images/empty-background.png" id="1_3xj3x"]
+[ext_resource type="Script" path="res://src/room/room.gd" id="1_ycdkt"]
 [ext_resource type="PackedScene" uid="uid://bxv3hamu0sy0u" path="res://src/cabinet/cabinet.tscn" id="2_cg00c"]
 [ext_resource type="PackedScene" uid="uid://bfjn11pru0kim" path="res://src/vault/vault.tscn" id="3_3hjj8"]
 [ext_resource type="PackedScene" uid="uid://c6bxrci5pcewx" path="res://src/key/key.tscn" id="4_l0dip"]
+[ext_resource type="PackedScene" uid="uid://dm3urf8l5h87h" path="res://src/inventory/inventory.tscn" id="5_1ul2e"]
 
 [node name="room" type="Node2D"]
+script = ExtResource("1_ycdkt")
 
 [node name="RoomImage" type="Sprite2D" parent="."]
 texture = ExtResource("1_3xj3x")
@@ -16,4 +19,5 @@ centered = false
 [node name="vault" parent="." instance=ExtResource("3_3hjj8")]
 
 [node name="key" parent="." instance=ExtResource("4_l0dip")]
-visible = false
+
+[node name="inventory" parent="." instance=ExtResource("5_1ul2e")]
