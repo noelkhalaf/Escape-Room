@@ -22,7 +22,5 @@ func update_inventory_ui():
 	for i in range(inventory.size()):
 		var item_name = inventory[i]
 		var item_texture = items_t[item_name]
-
-		# Assuming you have a TextureRect in your UI to display items
 		var item_display = $InventoryContainer.get_child(i)
 		item_display.texture = item_texture

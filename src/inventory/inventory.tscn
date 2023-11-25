@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dm3urf8l5h87h"]
+[gd_scene load_steps=3 format=3 uid="uid://dm3urf8l5h87h"]
 
 [ext_resource type="Script" path="res://src/inventory/inventory.gd" id="1_3f80l"]
+[ext_resource type="Script" path="res://src/inventory/InventoryContainer.gd" id="2_86hbn"]
 
 [node name="inventory" type="Node2D"]
 script = ExtResource("1_3f80l")
@@ -9,11 +10,36 @@ script = ExtResource("1_3f80l")
 offset_left = 953.0
 offset_right = 1024.0
 offset_bottom = 600.0
+script = ExtResource("2_86hbn")
 
 [node name="ItemTextureRect0" type="TextureRect" parent="InventoryContainer"]
 layout_mode = 2
 expand_mode = 5
 
 [node name="ItemTextureRect1" type="TextureRect" parent="InventoryContainer"]
+layout_mode = 2
+expand_mode = 5
+
+[node name="ItemTextureRect2" type="TextureRect" parent="InventoryContainer"]
+layout_mode = 2
+expand_mode = 5
+
+[node name="ItemTextureRect3" type="TextureRect" parent="InventoryContainer"]
+layout_mode = 2
+expand_mode = 5
+
+[node name="ItemTextureRect4" type="TextureRect" parent="InventoryContainer"]
+layout_mode = 2
+expand_mode = 5
+
+[node name="ItemTextureRect5" type="TextureRect" parent="InventoryContainer"]
+layout_mode = 2
+expand_mode = 5
+
+[node name="ItemTextureRect6" type="TextureRect" parent="InventoryContainer"]
+layout_mode = 2
+expand_mode = 5
+
+[node name="ItemTextureRect7" type="TextureRect" parent="InventoryContainer"]
 layout_mode = 2
 expand_mode = 5
