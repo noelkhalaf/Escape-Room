@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bxv3hamu0sy0u"]
 
 [ext_resource type="Script" path="res://src/cabinet/cabinet.gd" id="1_jsyom"]
-[ext_resource type="Texture2D" uid="uid://dhmirluv42gkb" path="res://assets/images/cabinet.png" id="1_njaqq"]
+[ext_resource type="Texture2D" uid="uid://bhaj3wr0doe5r" path="res://assets/images/cabinet/cabinet-closed.png" id="2_tv4up"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vjm3n"]
 size = Vector2(31.409, 19.9263)
@@ -13,7 +13,7 @@ size = Vector2(109.807, 43.4666)
 script = ExtResource("1_jsyom")
 
 [node name="CabinetImage" type="Sprite2D" parent="."]
-texture = ExtResource("1_njaqq")
+texture = ExtResource("2_tv4up")
 centered = false
 
 [node name="Note" type="CollisionShape2D" parent="."]

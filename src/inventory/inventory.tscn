@@ -12,34 +12,6 @@ offset_right = 1024.0
 offset_bottom = 600.0
 script = ExtResource("2_86hbn")
 
-[node name="ItemTextureRect0" type="TextureRect" parent="InventoryContainer"]
-layout_mode = 2
-expand_mode = 5
-
-[node name="ItemTextureRect1" type="TextureRect" parent="InventoryContainer"]
-layout_mode = 2
-expand_mode = 5
-
-[node name="ItemTextureRect2" type="TextureRect" parent="InventoryContainer"]
-layout_mode = 2
-expand_mode = 5
-
-[node name="ItemTextureRect3" type="TextureRect" parent="InventoryContainer"]
-layout_mode = 2
-expand_mode = 5
-
-[node name="ItemTextureRect4" type="TextureRect" parent="InventoryContainer"]
-layout_mode = 2
-expand_mode = 5
-
-[node name="ItemTextureRect5" type="TextureRect" parent="InventoryContainer"]
-layout_mode = 2
-expand_mode = 5
-
-[node name="ItemTextureRect6" type="TextureRect" parent="InventoryContainer"]
-layout_mode = 2
-expand_mode = 5
-
-[node name="ItemTextureRect7" type="TextureRect" parent="InventoryContainer"]
+[node name="ItemTextureRect" type="TextureRect" parent="InventoryContainer"]
 layout_mode = 2
 expand_mode = 5

@@ -1,7 +1,7 @@
 extends Node2D
 
-const items_t = {"key" : preload("res://assets/images/item-images/key.png"),
-				"notepad" : preload("res://assets/images/item-images/notepad.png")}
+const items_t = {"key" : preload(Global.KEY_0_T),
+				"notepad" : preload(Global.NOTEPAD_0_T)}
 
 var inventory: Array = []
 
@@ -16,6 +16,9 @@ func _process(delta):
 
 func add_item(item_name):
 	inventory.append(item_name)
+	#var item_display = TextureRect.new()
+	#item_display.texture = items_t[item_name]
+	#$InventoryContainer.add_child(item_display)
 	update_inventory_ui()
 
 func update_inventory_ui():

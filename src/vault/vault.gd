@@ -1,10 +1,10 @@
 extends Area2D
 
-const vault_closed_t = preload("res://assets/images/vault.png")
-const vault_closed_unlocked_t = preload("res://assets/images/vault-accept.png")
-const vault_open_t = preload("res://assets/images/vault-open.png")
-const vault_open_key_t = preload("res://assets/images/vault-open-key.png")
-const vault_unlocking_a = preload("res://assets/sounds/vault/vault_unlock.wav")
+const vault_closed_t = preload(Global.VAULT_CLOSED_LOCKED_T)
+const vault_closed_unlocked_t = preload(Global.VAULT_CLOSED_UNLOCKED_T)
+const vault_open_t = preload(Global.VAULT_OPEN_T)
+const vault_open_key_t = preload(Global.VAULT_OPEN_W_KEY_T)
+const vault_unlocking_a = preload(GlobalAudios.VAULT_UNLOCKING_A)
 
 enum {CLOSED_W_KEY, OPEN_W_KEY, CLOSED_NO_KEY, OPEN_NO_KEY}
 

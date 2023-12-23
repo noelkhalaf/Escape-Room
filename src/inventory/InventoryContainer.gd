@@ -11,7 +11,7 @@ func _process(delta):
 	pass
 
 
-func _get_drag_data(at_position):
+func _get_drag_data(_pos):
 	# Create a new TextureRect
 	var drag_texture_rect = TextureRect.new()
 	# Get the TextureRect that is being dragged

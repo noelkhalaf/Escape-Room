@@ -1,22 +1,8 @@
 extends Area2D
 
-const default_t = preload("res://assets/images/vault-keypad/keypad-default.png")
-const accept_t = preload("res://assets/images/vault-keypad/accept.png")
-const clear_t = preload("res://assets/images/vault-keypad/reset.png")
-const zero_t = preload("res://assets/images/vault-keypad/0.png")
-const one_t = preload("res://assets/images/vault-keypad/0.png")
-const two_t = preload("res://assets/images/vault-keypad/0.png")
-const three_t = preload("res://assets/images/vault-keypad/0.png")
-const four_t = preload("res://assets/images/vault-keypad/0.png")
-const five_t = preload("res://assets/images/vault-keypad/0.png")
-const six_t = preload("res://assets/images/vault-keypad/0.png")
-const seven_t = preload("res://assets/images/vault-keypad/0.png")
-const eight_t = preload("res://assets/images/vault-keypad/0.png")
-const nine_t = preload("res://assets/images/vault-keypad/0.png")
-
-const button_press_a = preload("res://assets/sounds/vault/keypad/electric_button_press.wav")
-const clear_keypad_a = preload("res://assets/sounds/vault/keypad/electric_button_clear_louder.wav")
-const solved_keypad_a = preload("res://assets/sounds/vault/keypad/electric_button_solved.wav")
+const button_press_a = preload(GlobalAudios.KEYPAD_BUTTON_A)
+const clear_keypad_a = preload(GlobalAudios.KEYPAD_CLEARED_A)
+const solved_keypad_a = preload(GlobalAudios.KEYPAD_SOLVED_A)
 
 @onready var vault_s = $".."
 @onready var keypad_image_s = $KeypadImage

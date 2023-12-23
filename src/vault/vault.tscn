@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bfjn11pru0kim"]
 
 [ext_resource type="Script" path="res://src/vault/vault.gd" id="1_ysyxq"]
-[ext_resource type="Texture2D" uid="uid://gjfjie1a8y0p" path="res://assets/images/vault.png" id="2_aga86"]
+[ext_resource type="Texture2D" path="res://assets/images/vault/vault-closed-locked.png" id="2_uprts"]
 [ext_resource type="PackedScene" uid="uid://bqku5vbtpq2da" path="res://src/vault/keypad/keypad.tscn" id="3_x8gvv"]
 [ext_resource type="Script" path="res://src/vault/keypad/keypad.gd" id="4_2fki8"]
 
@@ -19,7 +19,7 @@ script = ExtResource("1_ysyxq")
 
 [node name="VaultImage" type="Sprite2D" parent="."]
 position = Vector2(0, 1)
-texture = ExtResource("2_aga86")
+texture = ExtResource("2_uprts")
 centered = false
 
 [node name="Handle" type="CollisionShape2D" parent="."]

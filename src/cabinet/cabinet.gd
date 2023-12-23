@@ -1,8 +1,8 @@
 extends Area2D
 
-var cabinet_closed_t = preload("res://assets/images/cabinet.png")
-var cabinet_open_t = preload("res://assets/images/cabinet-open.png")
-var cabinet_open_note_t = preload("res://assets/images/cabinet-open-notepad.png")
+var cabinet_closed_t = preload(Global.CABINET_CLOSED_T)
+var cabinet_open_t = preload(Global.CABINET_OPEN_T)
+var cabinet_open_note_t = preload(Global.CABINET_OPEN_W_NOTEPAD_T)
 
 @onready var room_sc = $".."
 @onready var cabinet_s = $CabinetImage
@@ -52,10 +52,10 @@ func note_clicked():
 
 func open_drawer(image_t):
 	cabinet_s.set_texture(image_t)
-	drawer_s.position.x += Global.DRAWER_POS_X_DIFF
-	drawer_s.position.y += Global.DRAWER_POS_Y_DIFF
+	drawer_s.position.x += Global.CABINET_POS_X_DIFF
+	drawer_s.position.y += Global.CABINET_POS_Y_DIFF
 
 func close_drawer():
 	cabinet_s.set_texture(cabinet_closed_t)
-	drawer_s.position.x -= Global.DRAWER_POS_X_DIFF
-	drawer_s.position.y -= Global.DRAWER_POS_Y_DIFF
+	drawer_s.position.x -= Global.CABINET_POS_X_DIFF
+	drawer_s.position.y -= Global.CABINET_POS_Y_DIFF

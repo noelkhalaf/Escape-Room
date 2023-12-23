@@ -1,18 +1,18 @@
 extends TextureRect
 
-const default_t = preload("res://assets/images/vault-keypad/keypad-default.png")
-const accept_t = preload("res://assets/images/vault-keypad/accept.png")
-const clear_t = preload("res://assets/images/vault-keypad/reset.png")
-const zero_t = preload("res://assets/images/vault-keypad/0.png")
-const one_t = preload("res://assets/images/vault-keypad/1.png")
-const two_t = preload("res://assets/images/vault-keypad/2.png")
-const three_t = preload("res://assets/images/vault-keypad/3.png")
-const four_t = preload("res://assets/images/vault-keypad/4.png")
-const five_t = preload("res://assets/images/vault-keypad/5.png")
-const six_t = preload("res://assets/images/vault-keypad/6.png")
-const seven_t = preload("res://assets/images/vault-keypad/7.png")
-const eight_t = preload("res://assets/images/vault-keypad/8.png")
-const nine_t = preload("res://assets/images/vault-keypad/9.png")
+const default_t = preload(Global.KEYPAD_T)
+const accept_t = preload(Global.KEYPAD_SOLVED_T)
+const clear_t = preload(Global.KEYPAD_CLEARED_T)
+const zero_t = preload(Global.KEYPAD_0_T)
+const one_t = preload(Global.KEYPAD_1_T)
+const two_t = preload(Global.KEYPAD_2_T)
+const three_t = preload(Global.KEYPAD_3_T)
+const four_t = preload(Global.KEYPAD_4_T)
+const five_t = preload(Global.KEYPAD_5_T)
+const six_t = preload(Global.KEYPAD_6_T)
+const seven_t = preload(Global.KEYPAD_7_T)
+const eight_t = preload(Global.KEYPAD_8_T)
+const nine_t = preload(Global.KEYPAD_9_T)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
