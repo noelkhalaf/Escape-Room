@@ -6,6 +6,10 @@ const ROOM_SCENE_PATH_T:	String = "res://src/room/room.tscn"
 const KEY_0_T:		String = "res://assets/images/inventory-items/key-0.png"
 const NOTEPAD_0_T: 	String = "res://assets/images/inventory-items/notepad-0.png"
 
+# Room Door
+const ROOM_DOOR_CLOSED_T:	String = "res://assets/images/door/room-door-closed.png"
+const ROOM_DOOR_OPEN_T:	String = "res://assets/images/door/room-door-open.png"
+
 # Cabinet
 const CABINET_CLOSED_T:			String = "res://assets/images/cabinet/cabinet-closed.png"
 const CABINET_OPEN_T:			String = "res://assets/images/cabinet/cabinet-open.png"
