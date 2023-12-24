@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://ckqvebem5ktgh"]
+[gd_scene load_steps=7 format=3 uid="uid://ckqvebem5ktgh"]
 
 [ext_resource type="Texture2D" uid="uid://bpsrhv2naxgjk" path="res://assets/images/empty-background.png" id="1_7v0nm"]
 [ext_resource type="Shader" path="res://src/main-menu/main-menu.gdshader" id="2_he8ei"]
+[ext_resource type="Script" path="res://src/main-menu/menu-button-main.gd" id="3_uvbfy"]
+[ext_resource type="Script" path="res://src/main-menu/menu-button.gd" id="4_lknto"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xfuk2"]
 shader = ExtResource("2_he8ei")
@@ -10,25 +12,6 @@ shader_parameter/blur = 5.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wou5l"]
 shader = ExtResource("2_he8ei")
 shader_parameter/blur = 0.0
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_wsqft"]
-color = Color(1, 1, 1, 1)
-grow_end = -59.0
-thickness = 2
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_77sea"]
-color = Color(1, 1, 1, 1)
-thickness = 2
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_nkc62"]
-color = Color(1, 1, 1, 1)
-grow_end = -129.0
-thickness = 2
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_84esq"]
-color = Color(1, 1, 1, 1)
-grow_end = -60.0
-thickness = 2
 
 [node name="main-menu" type="Node2D"]
 
@@ -39,7 +22,6 @@ centered = false
 
 [node name="ColorRect" type="ColorRect" parent="Empty-background"]
 material = SubResource("ShaderMaterial_xfuk2")
-anchors_preset = -1
 offset_right = 295.0
 offset_bottom = 603.0
 
@@ -65,30 +47,155 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 
-[node name="Button5" type="Button" parent="Control/VBoxContainer"]
+[node name="ButtonControl" type="Control" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 35)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxLine_wsqft")
-theme_override_styles/hover = SubResource("StyleBoxLine_77sea")
+
+[node name="Button" type="Button" parent="Control/VBoxContainer/ButtonControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+alignment = 0
+script = ExtResource("3_uvbfy")
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/ButtonControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "New Game"
-alignment = 0
+vertical_alignment = 1
 
-[node name="Button6" type="Button" parent="Control/VBoxContainer"]
+[node name="LineControl" type="Control" parent="Control/VBoxContainer/ButtonControl"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Line2D" type="Line2D" parent="Control/VBoxContainer/ButtonControl/LineControl"]
+points = PackedVector2Array(2.08165e-12, 1, 52, 1)
+width = 2.0
+
+[node name="ButtonControl2" type="Control" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 35)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxLine_nkc62")
-theme_override_styles/hover = SubResource("StyleBoxLine_84esq")
+
+[node name="ButtonS" type="Button" parent="Control/VBoxContainer/ButtonControl2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+alignment = 0
+script = ExtResource("4_lknto")
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/ButtonControl2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Continue"
-alignment = 0
+vertical_alignment = 1
 
-[node name="Button7" type="Button" parent="Control/VBoxContainer"]
+[node name="LineControl" type="Control" parent="Control/VBoxContainer/ButtonControl2"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Line2D" type="Line2D" parent="Control/VBoxContainer/ButtonControl2/LineControl"]
+scale = Vector2(1e-05, 1)
+points = PackedVector2Array(2.08165e-12, 1, 52, 1)
+width = 2.0
+
+[node name="ButtonControl3" type="Control" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 35)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxLine_nkc62")
-theme_override_styles/hover = SubResource("StyleBoxLine_84esq")
+
+[node name="ButtonS" type="Button" parent="Control/VBoxContainer/ButtonControl3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+alignment = 0
+script = ExtResource("4_lknto")
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/ButtonControl3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Credits"
-alignment = 0
+vertical_alignment = 1
 
-[node name="Button8" type="Button" parent="Control/VBoxContainer"]
+[node name="LineControl" type="Control" parent="Control/VBoxContainer/ButtonControl3"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Line2D" type="Line2D" parent="Control/VBoxContainer/ButtonControl3/LineControl"]
+scale = Vector2(1e-05, 1)
+points = PackedVector2Array(2.08165e-12, 1, 52, 1)
+width = 2.0
+
+[node name="ButtonControl4" type="Control" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 35)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxLine_nkc62")
-theme_override_styles/hover = SubResource("StyleBoxLine_84esq")
-text = "Quit :("
+
+[node name="ButtonS" type="Button" parent="Control/VBoxContainer/ButtonControl4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
 alignment = 0
+script = ExtResource("4_lknto")
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/ButtonControl4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit :("
+vertical_alignment = 1
+
+[node name="LineControl" type="Control" parent="Control/VBoxContainer/ButtonControl4"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Line2D" type="Line2D" parent="Control/VBoxContainer/ButtonControl4/LineControl"]
+scale = Vector2(1e-05, 1)
+points = PackedVector2Array(2.08165e-12, 1, 52, 1)
+width = 2.0
+
+[connection signal="mouse_entered" from="Control/VBoxContainer/ButtonControl/Button" to="Control/VBoxContainer/ButtonControl/Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Control/VBoxContainer/ButtonControl/Button" to="Control/VBoxContainer/ButtonControl/Button" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/ButtonControl2/ButtonS" to="Control/VBoxContainer/ButtonControl2/ButtonS" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Control/VBoxContainer/ButtonControl2/ButtonS" to="Control/VBoxContainer/ButtonControl2/ButtonS" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/ButtonControl3/ButtonS" to="Control/VBoxContainer/ButtonControl3/ButtonS" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Control/VBoxContainer/ButtonControl3/ButtonS" to="Control/VBoxContainer/ButtonControl3/ButtonS" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/ButtonControl4/ButtonS" to="Control/VBoxContainer/ButtonControl4/ButtonS" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Control/VBoxContainer/ButtonControl4/ButtonS" to="Control/VBoxContainer/ButtonControl4/ButtonS" method="_on_mouse_exited"]
+[connection signal="pressed" from="Control/VBoxContainer/ButtonControl4/ButtonS" to="Control/VBoxContainer/ButtonControl4/ButtonS" method="_on_pressed"]
