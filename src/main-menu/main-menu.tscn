@@ -1,0 +1,94 @@
+[gd_scene load_steps=9 format=3 uid="uid://ckqvebem5ktgh"]
+
+[ext_resource type="Texture2D" uid="uid://bpsrhv2naxgjk" path="res://assets/images/empty-background.png" id="1_7v0nm"]
+[ext_resource type="Shader" path="res://src/main-menu/main-menu.gdshader" id="2_he8ei"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xfuk2"]
+shader = ExtResource("2_he8ei")
+shader_parameter/blur = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wou5l"]
+shader = ExtResource("2_he8ei")
+shader_parameter/blur = 0.0
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_wsqft"]
+color = Color(1, 1, 1, 1)
+grow_end = -59.0
+thickness = 2
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_77sea"]
+color = Color(1, 1, 1, 1)
+thickness = 2
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_nkc62"]
+color = Color(1, 1, 1, 1)
+grow_end = -129.0
+thickness = 2
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_84esq"]
+color = Color(1, 1, 1, 1)
+grow_end = -60.0
+thickness = 2
+
+[node name="main-menu" type="Node2D"]
+
+[node name="Empty-background" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+texture = ExtResource("1_7v0nm")
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="Empty-background"]
+material = SubResource("ShaderMaterial_xfuk2")
+anchors_preset = -1
+offset_right = 295.0
+offset_bottom = 603.0
+
+[node name="Control" type="Control" parent="."]
+material = SubResource("ShaderMaterial_wou5l")
+layout_mode = 3
+anchors_preset = 0
+offset_right = 306.0
+offset_bottom = 600.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -68.0
+offset_right = 64.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+
+[node name="Button5" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxLine_wsqft")
+theme_override_styles/hover = SubResource("StyleBoxLine_77sea")
+text = "New Game"
+alignment = 0
+
+[node name="Button6" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxLine_nkc62")
+theme_override_styles/hover = SubResource("StyleBoxLine_84esq")
+text = "Continue"
+alignment = 0
+
+[node name="Button7" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxLine_nkc62")
+theme_override_styles/hover = SubResource("StyleBoxLine_84esq")
+text = "Credits"
+alignment = 0
+
+[node name="Button8" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxLine_nkc62")
+theme_override_styles/hover = SubResource("StyleBoxLine_84esq")
+text = "Quit :("
+alignment = 0
