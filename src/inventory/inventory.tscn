@@ -3,15 +3,25 @@
 [ext_resource type="Script" path="res://src/inventory/inventory.gd" id="1_3f80l"]
 [ext_resource type="Script" path="res://src/inventory/InventoryContainer.gd" id="2_86hbn"]
 
-[node name="inventory" type="Node2D"]
+[node name="inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_3f80l")
 
 [node name="InventoryContainer" type="VBoxContainer" parent="."]
-offset_left = 953.0
+clip_contents = true
+layout_mode = 0
+offset_left = 927.0
 offset_right = 1024.0
-offset_bottom = 600.0
+offset_bottom = 597.0
 script = ExtResource("2_86hbn")
 
-[node name="ItemTextureRect" type="TextureRect" parent="InventoryContainer"]
+[node name="ColorRect" type="ColorRect" parent="InventoryContainer"]
+visible = false
 layout_mode = 2
-expand_mode = 5
+size_flags_vertical = 3
+color = Color(0.929412, 0.905882, 0.290196, 1)

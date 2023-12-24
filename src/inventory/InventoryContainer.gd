@@ -15,11 +15,16 @@ func _get_drag_data(_pos):
 	# Create a new TextureRect
 	var drag_texture_rect = TextureRect.new()
 	# Get the TextureRect that is being dragged
+	if get_child_index_under_mouse() == -1:
+		return
 	var dragged_texture_rect = get_child(get_child_index_under_mouse())
 	# Set the new TextureRect's texture to the dragged TextureRect's texture
 	drag_texture_rect.texture = dragged_texture_rect.texture
+	drag_texture_rect.position = drag_texture_rect.position - (0.5 * drag_texture_rect.size)
+	var c = Control.new()
+	c.add_child(drag_texture_rect)
 	# Set the drag preview to the new TextureRect
-	set_drag_preview(drag_texture_rect)
+	set_drag_preview(c)
 	# Return the dragged TextureRect
 	return dragged_texture_rect
 
